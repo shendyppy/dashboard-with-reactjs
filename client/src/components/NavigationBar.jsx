@@ -1,9 +1,20 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function NavigationBar() {
+function NavigationBar(props) {
+  const setSearch = props.setSearch;
+  const [input, setInput] = useState("");
+
+  useEffect(() => {
+    setSearch(input);
+  }, [input]);
+
   return (
     <>
-      <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content">
+      <div
+        className="navbar mb-2 shadow-lg bg-neutral text-neutral-content"
+        style={{ backgroundColor: "#150050" }}
+      >
         <div className="container mx-auto">
           <div className="flex-1 hidden px-2 mx-2 lg:flex">
             <Link to={"/"}>
@@ -15,12 +26,15 @@ function NavigationBar() {
               <input
                 type="text"
                 placeholder="Search"
+                style={{ backgroundColor: "white" }}
                 className="input input-ghost"
+                onChange={(e) => setInput(e.target.value)}
+                value={input}
               />
             </div>
           </div>
           <div className="flex-none">
-            <button className="btn btn-square btn-ghost">
+            <div className="btn btn-square btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -34,7 +48,7 @@ function NavigationBar() {
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 ></path>
               </svg>
-            </button>
+            </div>
           </div>
           <div className="flex-none">
             <Link to={"/favorites"}>
