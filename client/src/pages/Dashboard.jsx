@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTeams, fetchSearchedTeams } from "../store/teams/action";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import useDebouncing from "../hooks/useDebouncing";
 
@@ -50,7 +51,7 @@ function Dashboard(props) {
               borderColor: "#FF5C58",
             }}
           >
-            <div className="grid grid-cols-3 ml-6 mr-6 mb-3 mt-3">
+            <div className="grid grid-cols-4 ml-6 mr-6 mb-3 mt-3">
               {teams.map((team) => {
                 return <TeamCard team={team} />;
               })}

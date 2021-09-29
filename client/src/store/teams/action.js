@@ -48,7 +48,7 @@ export function fetchTeamsByID(id) {
       dispatch(setError(null));
       dispatch(setLoading(true));
 
-      const response = await nbaAPIByID.get(`${id}`);
+      const response = await nbaAPIByID.get(`/lookupteam.php?id=${id}`);
 
       dispatch(setTeamDetail(response.data.teams));
     } catch (err) {
