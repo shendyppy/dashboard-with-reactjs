@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
@@ -11,10 +11,16 @@ import Favorites from "./pages/Favorites";
 import NavigationBar from "./components/NavigationBar";
 
 function App() {
+  const [search, setSearch] = useState("");
+
   return (
-    <Provider store={store}>
-      <Router>
-        <NavigationBar />
+    <Router>
+      <Provider store={store}>
+        <NavigationBar
+          setSearch={(e) => {
+            setSearch(e);
+          }}
+        />
         <Switch>
           <Route path="/detail/:id">
             <Detail />
@@ -23,11 +29,11 @@ function App() {
             <Favorites />
           </Route>
           <Route path="/">
-            <Dashboard />
+            <Dashboard search={search} />
           </Route>
         </Switch>
-      </Router>
-    </Provider>
+      </Provider>
+    </Router>
   );
 }
 

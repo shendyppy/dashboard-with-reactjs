@@ -1,6 +1,6 @@
 import { SET_LOADING, SET_TEAMS, SET_ERROR } from "./actionType";
 
-import nbaAPI from "../../apis/NBA-apis";
+import nbaAPI from "../../apis/nbaAPI";
 import searchingAPI from "../../apis/searchingAPI";
 
 export function setLoading(payload) {
@@ -21,7 +21,9 @@ export function fetchTeams() {
       dispatch(setError(null));
       dispatch(setLoading(true));
 
-      const response = await nbaAPI.get("/");
+      const response = await nbaAPI.get("");
+
+      console.log(response);
 
       dispatch(setTeams(response.data.teams));
     } catch (err) {
@@ -38,7 +40,7 @@ export function fetchSearchedTeams(payload) {
       dispatch(setError(null));
       dispatch(setLoading(true));
 
-      const response = await searchingAPI.get(`${payload}`);
+      const response = await searchingAPI.get(`/searchteams.php?t=${payload}`);
 
       dispatch(setTeams(response.data.teams));
     } catch (err) {
