@@ -11,7 +11,7 @@ function useDebouncing(value, time) {
     return () => {
       clearTimeout(handler);
     };
-  }, [value]);
+  }, [value, time]);
 
   return valueDebouncing;
 }

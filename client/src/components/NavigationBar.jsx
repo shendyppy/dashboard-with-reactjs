@@ -7,7 +7,7 @@ function NavigationBar(props) {
 
   useEffect(() => {
     setSearch(input);
-  }, [input]);
+  }, [setSearch, input]);
 
   return (
     <>

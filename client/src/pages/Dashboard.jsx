@@ -30,7 +30,7 @@ function Dashboard({ search }) {
     } else {
       dispatch(fetchSearchedTeams(search));
     }
-  }, [debouncing]);
+  }, [dispatch, search, debouncing]);
 
   useEffect(() => {
     let teamsName = teams.map((team) => {
