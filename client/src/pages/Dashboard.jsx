@@ -171,7 +171,17 @@ function Dashboard({ search }) {
                   return <TeamCard team={team} />;
                 })}
               </div>
-              <ReactPaginate previousLabel={"<"} nextLabel={">"} />
+              <ReactPaginate
+                previousLabel={"Previous"}
+                nextLabel={"Next"}
+                containerClassName={"btn-group mx-auto mt-10 mb-5 shadow-xl"}
+                pageClassName={"btn"}
+                previousClassName={"btn"}
+                nextClassName={"btn"}
+                breakClassName={"btn"}
+                pageCount={8}
+                activeClassName={"btn-active"}
+              />
             </div>
           </div>
         </>

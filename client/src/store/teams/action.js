@@ -33,7 +33,7 @@ export function fetchTeams() {
 
       const response = await nbaAPI.get();
 
-      dispatch(setTeams(response.data.teams));
+      dispatch(setTeams(response.data.teams.slice(0, 4)));
     } catch (err) {
       dispatch(setError(err));
     } finally {
