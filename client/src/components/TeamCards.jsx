@@ -52,7 +52,7 @@ function TeamCard(props) {
         >
           <ToastContainer />
           <figure class="px-10 pt-10">
-            <img src={team.strTeamBadge} class="rounded-xl" />
+            <img src={team.strTeamBadge} alt="No Image" class="rounded-xl" />
           </figure>
           <div class="card-body">
             <h2 class="card-title font-bold mb-2">{team.strTeam}</h2>
@@ -92,7 +92,11 @@ function TeamCard(props) {
         >
           <ToastContainer />
           <figure class="px-10 pt-10">
-            <img src={favorite.strTeamBadge} class="rounded-xl" />
+            <img
+              src={favorite.strTeamBadge}
+              alt="No Image"
+              class="rounded-xl"
+            />
           </figure>
           <div class="card-body">
             <h2 class="card-title font-bold mb-2">{favorite.strTeam}</h2>
