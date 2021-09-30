@@ -17,7 +17,9 @@ function Detail() {
   const { loading, teamDetail, errors } = useSelector((state) => state.teams);
 
   useEffect(() => {
-    dispatch(fetchTeamsByID(id));
+    const searchParams = new URLSearchParams({ id });
+
+    dispatch(fetchTeamsByID(searchParams.toString()));
   }, [dispatch, id]);
 
   if (errors) {
