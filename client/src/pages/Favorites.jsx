@@ -19,6 +19,14 @@ function Favorites() {
       <ToastContainer />
 
       <div className="container mx-auto text-center shadow-xl mt-10 mb-10">
+        <h1
+          className="text-3xl font-bold text-center mt-10 mb-10"
+          style={{
+            color: "#150050",
+          }}
+        >
+          YOUR NBA FAVORITE TEAMS
+        </h1>
         <div
           className="card"
           style={{
@@ -27,7 +35,7 @@ function Favorites() {
             borderColor: "#FF5C58",
           }}
         >
-          <div className="grid grid-cols-2 ml-6 mr-6 mb-3 mt-3">
+          <div className="grid grid-cols-3 ml-6 mr-6 mb-3 mt-3">
             {favorites.map((favorite) => {
               return <TeamCard favorite={favorite} />;
             })}

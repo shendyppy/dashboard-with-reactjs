@@ -5,14 +5,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { setFavorite } from "../store/favorites/action";
 
-function TeamCard(props) {
+function TeamCard({ team, favorite }) {
   const history = useHistory();
   const dispatch = useDispatch();
 
   const favorites = useSelector((state) => state.favorites.favorites);
-
-  const team = props.team;
-  const favorite = props.favorite;
 
   const goToDetail = (id) => {
     history.push(`/detail/${id}`);
@@ -61,7 +58,7 @@ function TeamCard(props) {
           </figure>
           <div class="card-body">
             <h2 class="card-title font-bold mb-2">{team.strTeam}</h2>
-            <p class="truncate text-l">{team.strStadium}</p>
+            <p class="text-l">{team.strStadium}</p>
             <div class="justify-center card-actions">
               <button
                 class="btn btn-outline btn-accent"
@@ -101,7 +98,7 @@ function TeamCard(props) {
           </figure>
           <div class="card-body">
             <h2 class="card-title font-bold mb-2">{favorite.strTeam}</h2>
-            <p class="truncate text-l">{favorite.strDescriptionEN}</p>
+            <p class="text-l">{favorite.strStadium}</p>
             <div class="justify-center card-actions">
               <button
                 class="btn btn-outline btn-accent"

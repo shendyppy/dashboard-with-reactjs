@@ -82,13 +82,9 @@ function Detail() {
                       >
                         Stadium Capacity:
                       </p>
-                      {teamDetail[0].intStadiumCapacity !== 0 ? (
-                        <p className="text-xl italic">
-                          {teamDetail[0].intStadiumCapacity}
-                        </p>
-                      ) : (
-                        <p className="text-xl italic">No Further Information</p>
-                      )}
+                      <p className="text-xl italic">
+                        {teamDetail[0].intStadiumCapacity}
+                      </p>
                     </div>
                   </div>
                   <div
