@@ -5,6 +5,8 @@ import { fetchTeams, fetchSearchedTeams } from "../store/teams/action";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import ReactPaginate from "react-paginate";
+
 import useDebouncing from "../hooks/useDebouncing";
 
 import Error from "../components/Error";
@@ -28,7 +30,9 @@ function Dashboard({ search }) {
     if (!search) {
       dispatch(fetchTeams());
     } else {
-      dispatch(fetchSearchedTeams(search));
+      const searchParams = new URLSearchParams({ t: search });
+
+      dispatch(fetchSearchedTeams(searchParams.toString()));
     }
   }, [dispatch, search, debouncing]);
 
@@ -67,12 +71,12 @@ function Dashboard({ search }) {
           <div className="container mx-auto text-center shadow-xl mt-10 mb-10">
             <div className="container mx-auto text-center">
               <h1
-                className="text-3xl font-bold text-center"
+                className="text-5xl font-bold text-center"
                 style={{
                   color: "#150050",
                 }}
               >
-                YOUR NBA TEAM LIST
+                YOUR TEAM LIST
               </h1>
               <div className="container mx-auto text-center shadow-xl mt-10">
                 <div
@@ -98,7 +102,7 @@ function Dashboard({ search }) {
                               style={{
                                 color: "#150050",
                                 backgroundColor: "#FF5C58",
-                                fontSize: 20,
+                                fontSize: 24,
                               }}
                             >
                               Team Name
@@ -107,7 +111,7 @@ function Dashboard({ search }) {
                               style={{
                                 color: "#150050",
                                 backgroundColor: "#FF5C58",
-                                fontSize: 20,
+                                fontSize: 24,
                               }}
                             >
                               Stadium
@@ -116,7 +120,7 @@ function Dashboard({ search }) {
                               style={{
                                 color: "#150050",
                                 backgroundColor: "#FF5C58",
-                                fontSize: 20,
+                                fontSize: 24,
                                 padding: 10,
                               }}
                             >
@@ -136,23 +140,23 @@ function Dashboard({ search }) {
           </div>
           <div className="container mx-auto text-center shadow-xl mt-20 mb-10">
             <h1
-              className="text-3xl font-bold text-center mt-20 mb-10"
+              className="text-5xl font-bold text-center mt-20 mb-10"
               style={{
                 color: "#150050",
               }}
             >
-              YOUR NBA TEAM STADIUM CAPACITY
+              YOUR TEAM STADIUM CAPACITY
             </h1>
             <Chart teamName={teamName} capacity={capacity} />
           </div>
           <div className="container mx-auto text-center shadow-xl mt-20 mb-10">
             <h1
-              className="text-3xl font-bold text-center mt-20 mb-10"
+              className="text-5xl font-bold text-center mt-20 mb-10"
               style={{
                 color: "#150050",
               }}
             >
-              YOUR NBA TEAM INFORMATION
+              YOUR TEAM INFORMATION
             </h1>
             <div
               className="card"
@@ -167,6 +171,7 @@ function Dashboard({ search }) {
                   return <TeamCard team={team} />;
                 })}
               </div>
+              <ReactPaginate previousLabel={"<"} nextLabel={">"} />
             </div>
           </div>
         </>

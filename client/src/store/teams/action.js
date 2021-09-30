@@ -48,7 +48,7 @@ export function fetchTeamsByID(id) {
       dispatch(setError(null));
       dispatch(setLoading(true));
 
-      const response = await nbaAPIByID.get(`/lookupteam.php?id=${id}`);
+      const response = await nbaAPIByID.get(`/lookupteam.php?${id}`);
 
       dispatch(setTeamDetail(response.data.teams));
     } catch (err) {
@@ -65,7 +65,7 @@ export function fetchSearchedTeams(payload) {
       dispatch(setError(null));
       dispatch(setLoading(true));
 
-      const response = await searchingAPI.get(`/searchteams.php?t=${payload}`);
+      const response = await searchingAPI.get(`/searchteams.php?${payload}`);
 
       dispatch(setTeams(response.data.teams));
     } catch (err) {

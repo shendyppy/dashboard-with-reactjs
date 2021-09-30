@@ -57,26 +57,32 @@ function TeamCard({ team, favorite }) {
             />
           </figure>
           <div class="card-body">
-            <h2 class="card-title font-bold mb-2">{team.strTeam}</h2>
-            <p class="text-l">{team.strStadium}</p>
+            <h2 class="text-3xl font-bold mb-2">{team.strTeam}</h2>
+            <p class="text-2xl">{team.strStadium}</p>
             <div class="justify-center card-actions">
               <button
-                class="btn btn-outline btn-accent"
+                class="btn btn-outline"
+                style={{ backgroundColor: "#150050", width: "200px" }}
                 onClick={(e) => {
                   e.preventDefault();
                   addToFavorite(team);
                 }}
               >
-                Add to Favorites
+                <p class="text-xl" style={{ color: "#FF5C58" }}>
+                  Add to Favorites
+                </p>
               </button>
               <button
-                class="btn btn-outline btn-accent"
+                class="btn btn-outline"
+                style={{ backgroundColor: "#150050", width: "200px" }}
                 onClick={(e) => {
                   e.preventDefault();
                   goToDetail(team.idTeam);
                 }}
               >
-                More info
+                <p class="text-xl" style={{ color: "#FF5C58" }}>
+                  More Info
+                </p>
               </button>
             </div>
           </div>
@@ -94,20 +100,28 @@ function TeamCard({ team, favorite }) {
         >
           <ToastContainer />
           <figure class="px-10 pt-10">
-            <img src={favorite.strTeamBadge} alt="No Data" class="rounded-xl" />
+            <img
+              src={favorite.strTeamBadge}
+              alt="No Data"
+              class="rounded-xl"
+              style={{ minHeight: "100%" }}
+            />
           </figure>
           <div class="card-body">
-            <h2 class="card-title font-bold mb-2">{favorite.strTeam}</h2>
-            <p class="text-l">{favorite.strStadium}</p>
+            <h2 class="text-3xl font-bold mb-2">{favorite.strTeam}</h2>
+            <p class="text-2xl">{favorite.strStadium}</p>
             <div class="justify-center card-actions">
               <button
-                class="btn btn-outline btn-accent"
+                class="btn btn-outline"
+                style={{ backgroundColor: "#150050", width: "200px" }}
                 onClick={(e) => {
                   e.preventDefault();
                   goToDetail(favorite.idTeam);
                 }}
               >
-                More info
+                <p class="text-xl" style={{ color: "#FF5C58" }}>
+                  More Info
+                </p>
               </button>
             </div>
           </div>

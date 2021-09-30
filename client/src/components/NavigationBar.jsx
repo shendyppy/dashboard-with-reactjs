@@ -18,7 +18,7 @@ function NavigationBar(props) {
         <div className="container mx-auto">
           <div className="flex-1 hidden px-2 mx-2 lg:flex">
             <Link to={"/"} onClick={(e) => setInput("")}>
-              <span className="text-lg font-bold">Your NBA App</span>
+              <span className="text-2xl font-bold">Your NBA App</span>
             </Link>
           </div>
           <div className="flex-1 lg:flex-none">

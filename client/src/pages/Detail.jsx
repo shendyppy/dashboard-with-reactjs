@@ -17,7 +17,9 @@ function Detail() {
   const { loading, teamDetail, errors } = useSelector((state) => state.teams);
 
   useEffect(() => {
-    dispatch(fetchTeamsByID(id));
+    const searchParams = new URLSearchParams({ id });
+
+    dispatch(fetchTeamsByID(searchParams.toString()));
   }, [dispatch, id]);
 
   if (errors) {
@@ -55,34 +57,34 @@ function Detail() {
                   <div className="mt-5">
                     <div className="mt-4">
                       <p
-                        className="text-xl font-bold"
+                        className="text-3xl font-bold"
                         style={{ color: "#FF5C58" }}
                       >
                         Stadium Name:
                       </p>
-                      <p className="text-xl italic">
+                      <p className="text-2xl italic">
                         {teamDetail[0].strStadium}
                       </p>
                     </div>
                     <div className="mt-4">
                       <p
-                        className="text-xl font-bold"
+                        className="text-3xl font-bold"
                         style={{ color: "#FF5C58" }}
                       >
                         Stadium Location:
                       </p>
-                      <p className="text-xl italic">
+                      <p className="text-2xl italic">
                         {teamDetail[0].strStadiumLocation}
                       </p>
                     </div>
                     <div className="mt-4">
                       <p
-                        className="text-xl font-bold"
+                        className="text-3xl font-bold"
                         style={{ color: "#FF5C58" }}
                       >
                         Stadium Capacity:
                       </p>
-                      <p className="text-xl italic">
+                      <p className="text-2xl italic">
                         {teamDetail[0].intStadiumCapacity}
                       </p>
                     </div>
@@ -102,12 +104,12 @@ function Detail() {
               </div>
               <div className="max-w-md card-body">
                 <h2
-                  className="text-2xl font-bold mb-2"
+                  className="text-3xl font-bold mb-2"
                   style={{ color: "#FF5C58" }}
                 >
                   {teamDetail[0].strTeam}
                 </h2>
-                <p className="text-xl italic">
+                <p className="text-2xl italic">
                   {teamDetail[0].strDescriptionEN}
                 </p>
               </div>

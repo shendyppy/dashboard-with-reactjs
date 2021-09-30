@@ -11,6 +11,7 @@ function Table({ team }) {
               borderWidth: 1,
               borderColor: "#b4b4b4",
               padding: 5,
+              fontSize: 22,
             }}
             className="text-center"
           >
@@ -24,6 +25,7 @@ function Table({ team }) {
               borderWidth: 1,
               borderColor: "#b4b4b4",
               padding: 5,
+              fontSize: 22,
             }}
             className="text-center"
           >
@@ -37,6 +39,7 @@ function Table({ team }) {
               borderWidth: 1,
               borderColor: "#b4b4b4",
               padding: 5,
+              fontSize: 22,
             }}
             className="overflow truncate text-center"
           >
