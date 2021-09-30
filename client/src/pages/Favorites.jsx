@@ -25,7 +25,7 @@ function Favorites() {
             color: "#150050",
           }}
         >
-          YOUR NBA FAVORITE TEAMS
+          YOUR FAVORITE TEAMS
         </h1>
         <div
           className="card"

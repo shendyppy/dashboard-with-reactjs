@@ -28,7 +28,9 @@ function Dashboard({ search }) {
     if (!search) {
       dispatch(fetchTeams());
     } else {
-      dispatch(fetchSearchedTeams(search));
+      const searchParams = new URLSearchParams({ t: search });
+
+      dispatch(fetchSearchedTeams(searchParams.toString()));
     }
   }, [dispatch, search, debouncing]);
 
@@ -72,7 +74,7 @@ function Dashboard({ search }) {
                   color: "#150050",
                 }}
               >
-                YOUR NBA TEAM LIST
+                YOUR TEAM LIST
               </h1>
               <div className="container mx-auto text-center shadow-xl mt-10">
                 <div
@@ -141,7 +143,7 @@ function Dashboard({ search }) {
                 color: "#150050",
               }}
             >
-              YOUR NBA TEAM STADIUM CAPACITY
+              YOUR TEAM STADIUM CAPACITY
             </h1>
             <Chart teamName={teamName} capacity={capacity} />
           </div>
@@ -152,7 +154,7 @@ function Dashboard({ search }) {
                 color: "#150050",
               }}
             >
-              YOUR NBA TEAM INFORMATION
+              YOUR TEAM INFORMATION
             </h1>
             <div
               className="card"
