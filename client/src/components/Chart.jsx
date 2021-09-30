@@ -1,6 +1,6 @@
 import { Bar } from "react-chartjs-2";
 
-function Chart() {
+function Chart({ teamName, capacity }) {
   return (
     <>
       <div
@@ -13,14 +13,14 @@ function Chart() {
       >
         <Bar
           data={{
-            labels: ["Test"],
+            labels: teamName,
             datasets: [
               {
-                label: "Jumlah laporan masuk",
-                data: ["Test"],
+                label: "Stadium Capacity",
+                data: capacity,
                 backgroundColor: ["#f15447"],
                 borderColor: ["#f15447"],
-                borderWidth: 1,
+                borderWidth: 2,
                 options: {
                   scales: {
                     y: {
@@ -33,7 +33,7 @@ function Chart() {
             ],
           }}
           width={100}
-          height={30}
+          height={50}
           style={{ margin: "2%" }}
         />
       </div>
