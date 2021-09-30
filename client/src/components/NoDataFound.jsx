@@ -1,7 +1,14 @@
 function NoDataFound() {
   return (
     <div className="container mx-auto text-center mt-10">
-      <h1 className="text-3xl">Data Not Found!</h1>
+      <h1
+        className="text-5xl font-bold text-center mt-20 mb-10"
+        style={{
+          color: "#150050",
+        }}
+      >
+        DATA NOT FOUND!
+      </h1>
     </div>
   );
 }

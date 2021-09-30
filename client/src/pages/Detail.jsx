@@ -18,7 +18,7 @@ function Detail() {
 
   useEffect(() => {
     dispatch(fetchTeamsByID(id));
-  }, []);
+  }, [dispatch, id]);
 
   if (errors) {
     return <Error />;
@@ -36,31 +36,80 @@ function Detail() {
         <div className="container mx-auto text-center shadow-xl mt-10 mb-10">
           <ToastContainer />
           <div
-            class="flex items-center w-full px-4 py-10 bg-cover card bg-base-200"
+            className="flex items-center w-full px-4 py-10 bg-cover card bg-base-200"
             style={{
               "background-image": `url(${teamDetail[0].strStadiumThumb})`,
             }}
           >
-            <div class="card glass lg:card-side text-neutral-content">
-              <figure class="p-6">
-                <img
-                  src={teamDetail[0].strTeamBadge}
-                  class="rounded-lg shadow-lg"
-                />
-                <div className="mt-5">
-                  <p class="text-xl">{teamDetail[0].strStadium}</p>
-                  <p class="text-xl">{teamDetail[0].strStadiumLocation}</p>
-                  {teamDetail[0].intStadiumCapacity !== 0 ? (
-                    <p class="text-xl">{teamDetail[0].intStadiumCapacity}</p>
-                  ) : (
-                    <p class="text-xl">No Further Information</p>
-                  )}
-                </div>
-                <MapContent />
-              </figure>
-              <div class="max-w-md card-body">
-                <h2 class="card-title">{teamDetail[0].strTeam}</h2>
-                <p>{teamDetail[0].strDescriptionEN}</p>
+            <div
+              className="card glass lg:card-side text-neutral-content"
+              style={{ backgroundColor: "#150050" }}
+            >
+              <div>
+                <figure class="p-6">
+                  <img
+                    alt="No Data"
+                    src={teamDetail[0].strTeamBadge}
+                    className="rounded-lg shadow-lg"
+                  />
+                  <div className="mt-5">
+                    <div className="mt-4">
+                      <p
+                        className="text-xl font-bold"
+                        style={{ color: "#FF5C58" }}
+                      >
+                        Stadium Name:
+                      </p>
+                      <p className="text-xl italic">
+                        {teamDetail[0].strStadium}
+                      </p>
+                    </div>
+                    <div className="mt-4">
+                      <p
+                        className="text-xl font-bold"
+                        style={{ color: "#FF5C58" }}
+                      >
+                        Stadium Location:
+                      </p>
+                      <p className="text-xl italic">
+                        {teamDetail[0].strStadiumLocation}
+                      </p>
+                    </div>
+                    <div className="mt-4">
+                      <p
+                        className="text-xl font-bold"
+                        style={{ color: "#FF5C58" }}
+                      >
+                        Stadium Capacity:
+                      </p>
+                      <p className="text-xl italic">
+                        {teamDetail[0].intStadiumCapacity}
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className="items-center mt-6"
+                    style={{
+                      height: "512px",
+                      width: "512px",
+                      borderWidth: 2,
+                      borderRadius: 10,
+                    }}
+                  >
+                    <MapContent />
+                  </div>
+                </figure>
+              </div>
+              <div className="max-w-md card-body">
+                <h2
+                  className="text-2xl font-bold mb-2"
+                  style={{ color: "#FF5C58" }}
+                >
+                  {teamDetail[0].strTeam}
+                </h2>
+                <p className="text-xl italic">
+                  {teamDetail[0].strDescriptionEN}
+                </p>
               </div>
             </div>
           </div>

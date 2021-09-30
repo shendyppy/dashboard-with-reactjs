@@ -7,7 +7,7 @@ function NavigationBar(props) {
 
   useEffect(() => {
     setSearch(input);
-  }, [input]);
+  }, [setSearch, input]);
 
   return (
     <>
@@ -17,7 +17,7 @@ function NavigationBar(props) {
       >
         <div className="container mx-auto">
           <div className="flex-1 hidden px-2 mx-2 lg:flex">
-            <Link to={"/"}>
+            <Link to={"/"} onClick={(e) => setInput("")}>
               <span className="text-lg font-bold">Your NBA App</span>
             </Link>
           </div>
@@ -51,7 +51,7 @@ function NavigationBar(props) {
             </div>
           </div>
           <div className="flex-none">
-            <Link to={"/favorites"}>
+            <Link to={"/favorites"} onClick={() => setInput("")}>
               <button className="btn btn-square btn-ghost">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
