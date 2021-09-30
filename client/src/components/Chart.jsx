@@ -20,7 +20,7 @@ function Chart({ teamName, capacity }) {
                 data: capacity,
                 backgroundColor: ["#f15447"],
                 borderColor: ["#f15447"],
-                borderWidth: 1,
+                borderWidth: 2,
                 options: {
                   scales: {
                     y: {
@@ -33,7 +33,7 @@ function Chart({ teamName, capacity }) {
             ],
           }}
           width={100}
-          height={30}
+          height={50}
           style={{ margin: "2%" }}
         />
       </div>

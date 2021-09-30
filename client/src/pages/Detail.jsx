@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 
 import Error from "../components/Error";
 import Loading from "../components/Loading";
+import MapContent from "../components/MapContent";
 import NoDataFound from "../components/NoDataFound";
 import { useParams } from "react-router";
 
@@ -29,7 +30,7 @@ function Detail() {
 
   return (
     <>
-      {loading ? (
+      {loading || !teamDetail[0] ? (
         <Loading />
       ) : (
         <div className="container mx-auto text-center shadow-xl mt-10 mb-10">
@@ -46,9 +47,16 @@ function Detail() {
                   src={teamDetail[0].strTeamBadge}
                   class="rounded-lg shadow-lg"
                 />
-                <p class="text-xl">{teamDetail[0].strStadium}</p>
-                <p class="text-xl">{teamDetail[0].strStadiumLocation}</p>
-                <p class="text-xl">{teamDetail[0].intStadiumCapacity}</p>
+                <div className="mt-5">
+                  <p class="text-xl">{teamDetail[0].strStadium}</p>
+                  <p class="text-xl">{teamDetail[0].strStadiumLocation}</p>
+                  {teamDetail[0].intStadiumCapacity !== 0 ? (
+                    <p class="text-xl">{teamDetail[0].intStadiumCapacity}</p>
+                  ) : (
+                    <p class="text-xl">No Further Information</p>
+                  )}
+                </div>
+                <MapContent />
               </figure>
               <div class="max-w-md card-body">
                 <h2 class="card-title">{teamDetail[0].strTeam}</h2>
