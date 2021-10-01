@@ -3,6 +3,7 @@ import {
   SET_TEAMS,
   SET_TEAM_DETAIL,
   SET_ERROR,
+  SET_LENGTH,
 } from "./actionType";
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   loading: true,
   errors: null,
   teamDetail: [],
+  length: 0,
 };
 
 const reducer = (state = initialState, action) => {
@@ -23,6 +25,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, loading: payload };
     case SET_ERROR:
       return { ...state, errors: payload };
+    case SET_LENGTH:
+      return { ...state, length: payload };
     default:
       return state;
   }

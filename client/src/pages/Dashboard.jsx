@@ -19,22 +19,28 @@ import NoDataFound from "../components/NoDataFound";
 function Dashboard({ search }) {
   const [teamName, setTeamName] = useState("");
   const [capacity, setCapacity] = useState(0);
+  const [limit] = useState(5);
+  const [offset, setOffset] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const dispatch = useDispatch();
 
   const debouncing = useDebouncing(search, 500);
 
-  const { loading, teams, errors } = useSelector((state) => state.teams);
+  const { loading, teams, errors, length } = useSelector(
+    (state) => state.teams
+  );
 
   useEffect(() => {
     if (!search) {
-      dispatch(fetchTeams());
+      dispatch(fetchTeams(offset, limit));
     } else {
       const searchParams = new URLSearchParams({ t: search });
 
-      dispatch(fetchSearchedTeams(searchParams.toString()));
+      dispatch(fetchSearchedTeams(searchParams.toString(), offset, limit));
     }
-  }, [dispatch, search, debouncing]);
+  }, [dispatch, search, debouncing, offset, limit]);
 
   useEffect(() => {
     if (!teams) {
@@ -52,6 +58,22 @@ function Dashboard({ search }) {
       setCapacity(totalCapacity);
     }
   }, [teams]);
+
+  useEffect(() => {
+    if (!search) {
+      setPageCount(Math.ceil(length / limit));
+    } else {
+      setPageCount(Math.ceil(length / limit));
+    }
+  }, [limit, search, length]);
+
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    const offset = selectedPage * limit;
+
+    setOffset(offset);
+    setCurrentPage(selectedPage);
+  };
 
   if (errors) {
     return <Error />;
@@ -179,7 +201,9 @@ function Dashboard({ search }) {
                 previousClassName={"btn"}
                 nextClassName={"btn"}
                 breakClassName={"btn"}
-                pageCount={8}
+                onPageChange={handlePageClick}
+                forcePage={currentPage}
+                pageCount={pageCount}
                 activeClassName={"btn-active"}
               />
             </div>

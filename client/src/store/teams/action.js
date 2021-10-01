@@ -3,6 +3,7 @@ import {
   SET_TEAMS,
   SET_ERROR,
   SET_TEAM_DETAIL,
+  SET_LENGTH,
 } from "./actionType";
 
 import nbaAPI from "../../apis/nbaAPI";
@@ -25,7 +26,11 @@ export function setError(payload) {
   return { type: SET_ERROR, payload };
 }
 
-export function fetchTeams() {
+export function setLength(payload) {
+  return { type: SET_LENGTH, payload };
+}
+
+export function fetchTeams(offset, limit) {
   return async function (dispatch) {
     try {
       dispatch(setError(null));
@@ -33,7 +38,9 @@ export function fetchTeams() {
 
       const response = await nbaAPI.get();
 
-      dispatch(setTeams(response.data.teams.slice(0, 4)));
+      dispatch(setLength(response.data.teams.length));
+
+      dispatch(setTeams(response.data.teams.slice(offset, offset + limit)));
     } catch (err) {
       dispatch(setError(err));
     } finally {
@@ -59,7 +66,7 @@ export function fetchTeamsByID(id) {
   };
 }
 
-export function fetchSearchedTeams(payload) {
+export function fetchSearchedTeams(payload, offset, limit) {
   return async function (dispatch) {
     try {
       dispatch(setError(null));
@@ -67,7 +74,9 @@ export function fetchSearchedTeams(payload) {
 
       const response = await searchingAPI.get(`/searchteams.php?${payload}`);
 
-      dispatch(setTeams(response.data.teams));
+      dispatch(setLength(response.data.teams.length));
+
+      dispatch(setTeams(response.data.teams.slice(offset, offset + limit)));
     } catch (err) {
       dispatch(setError(err));
     } finally {
