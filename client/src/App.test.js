@@ -1,8 +1,26 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("Dashboard", () => {
+  test("Should render navbar correctly", () => {
+    render(<App />);
+
+    screen.getByText("Your NBA App");
+  });
+});
+
+describe("Favorites", () => {
+  test("Should render navbar correctly", () => {
+    render(<App />);
+
+    screen.getByText("Your NBA App");
+  });
+});
+
+describe("Detail", () => {
+  test("Should render navbar correctly", () => {
+    render(<App />);
+
+    screen.getByText("Your NBA App");
+  });
 });
