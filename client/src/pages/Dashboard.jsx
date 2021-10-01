@@ -19,7 +19,7 @@ import NoDataFound from "../components/NoDataFound";
 function Dashboard({ search }) {
   const [teamName, setTeamName] = useState("");
   const [capacity, setCapacity] = useState(0);
-  const [limit] = useState(5);
+  const [limit] = useState(4);
   const [offset, setOffset] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
@@ -90,7 +90,7 @@ function Dashboard({ search }) {
         <Loading />
       ) : (
         <>
-          <div className="container mx-auto text-center shadow-xl mt-10 mb-10">
+          <div className="container mx-auto text-center mt-10 mb-10">
             <div className="container mx-auto text-center">
               <h1
                 className="text-5xl font-bold text-center"
@@ -107,6 +107,7 @@ function Dashboard({ search }) {
                     backgroundColor: "white",
                     borderWidth: 2,
                     borderColor: "#FF5C58",
+                    height: "350px",
                   }}
                 >
                   <div className="m-8">
@@ -150,8 +151,8 @@ function Dashboard({ search }) {
                             </th>
                           </tr>
                         </thead>
-                        {teams.map((team) => {
-                          return <Table team={team} />;
+                        {teams.map((team, index) => {
+                          return <Table team={team} key={index} />;
                         })}
                       </table>
                     </div>
@@ -160,7 +161,7 @@ function Dashboard({ search }) {
               </div>
             </div>
           </div>
-          <div className="container mx-auto text-center shadow-xl mt-20 mb-10">
+          <div className="container mx-auto text-center mt-20 mb-10">
             <h1
               className="text-5xl font-bold text-center mt-20 mb-10"
               style={{
@@ -171,7 +172,7 @@ function Dashboard({ search }) {
             </h1>
             <Chart teamName={teamName} capacity={capacity} />
           </div>
-          <div className="container mx-auto text-center shadow-xl mt-20 mb-10">
+          <div className="container mx-auto text-center mt-20 mb-20">
             <h1
               className="text-5xl font-bold text-center mt-20 mb-10"
               style={{
@@ -189,8 +190,8 @@ function Dashboard({ search }) {
               }}
             >
               <div className="grid grid-cols-4 ml-6 mr-6 mb-3 mt-3">
-                {teams.map((team) => {
-                  return <TeamCard team={team} />;
+                {teams.map((team, index) => {
+                  return <TeamCard team={team} key={index} />;
                 })}
               </div>
               <ReactPaginate

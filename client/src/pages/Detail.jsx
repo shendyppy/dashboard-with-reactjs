@@ -40,7 +40,7 @@ function Detail() {
           <div
             className="flex items-center w-full px-4 py-10 bg-cover card bg-base-200"
             style={{
-              "background-image": `url(${teamDetail[0].strStadiumThumb})`,
+              backgroundImage: `url(${teamDetail[0].strStadiumThumb})`,
             }}
           >
             <div
@@ -48,7 +48,7 @@ function Detail() {
               style={{ backgroundColor: "#150050" }}
             >
               <div>
-                <figure class="p-6">
+                <figure className="p-6">
                   <img
                     alt="No Data"
                     src={teamDetail[0].strTeamBadge}

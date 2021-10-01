@@ -44,43 +44,43 @@ function TeamCard({ team, favorite }) {
     return (
       <>
         <div
-          class="card text-center shadow-2xl m-3"
+          className="card text-center shadow-2xl m-3"
           style={{ borderWidth: 2, borderColor: "#150050" }}
         >
           <ToastContainer />
-          <figure class="px-10 pt-10">
+          <figure className="px-10 pt-10">
             <img
               src={team.strTeamBadge}
               alt="No Data"
-              class="rounded-xl"
+              className="rounded-xl"
               style={{ minHeight: "100%" }}
             />
           </figure>
-          <div class="card-body">
-            <h2 class="text-3xl font-bold mb-2">{team.strTeam}</h2>
-            <p class="text-2xl">{team.strStadium}</p>
-            <div class="justify-center card-actions">
+          <div className="card-body">
+            <h2 className="text-3xl font-bold mb-2">{team.strTeam}</h2>
+            <p className="text-2xl">{team.strStadium}</p>
+            <div className="justify-center card-actions">
               <button
-                class="btn btn-outline"
+                className="btn btn-outline"
                 style={{ backgroundColor: "#150050", width: "200px" }}
                 onClick={(e) => {
                   e.preventDefault();
                   addToFavorite(team);
                 }}
               >
-                <p class="text-xl" style={{ color: "#FF5C58" }}>
+                <p className="text-xl" style={{ color: "#FF5C58" }}>
                   Add to Favorites
                 </p>
               </button>
               <button
-                class="btn btn-outline"
+                className="btn btn-outline"
                 style={{ backgroundColor: "#150050", width: "200px" }}
                 onClick={(e) => {
                   e.preventDefault();
                   goToDetail(team.idTeam);
                 }}
               >
-                <p class="text-xl" style={{ color: "#FF5C58" }}>
+                <p className="text-xl" style={{ color: "#FF5C58" }}>
                   More Info
                 </p>
               </button>
@@ -95,31 +95,31 @@ function TeamCard({ team, favorite }) {
     return (
       <>
         <div
-          class="card text-center shadow-2xl m-3"
+          className="card text-center shadow-2xl m-3"
           style={{ borderWidth: 2, borderColor: "#150050" }}
         >
           <ToastContainer />
-          <figure class="px-10 pt-10">
+          <figure className="px-10 pt-10">
             <img
               src={favorite.strTeamBadge}
               alt="No Data"
-              class="rounded-xl"
+              className="rounded-xl"
               style={{ minHeight: "100%" }}
             />
           </figure>
-          <div class="card-body">
-            <h2 class="text-3xl font-bold mb-2">{favorite.strTeam}</h2>
-            <p class="text-2xl">{favorite.strStadium}</p>
-            <div class="justify-center card-actions">
+          <div className="card-body">
+            <h2 className="text-3xl font-bold mb-2">{favorite.strTeam}</h2>
+            <p className="text-2xl">{favorite.strStadium}</p>
+            <div className="justify-center card-actions">
               <button
-                class="btn btn-outline"
+                className="btn btn-outline"
                 style={{ backgroundColor: "#150050", width: "200px" }}
                 onClick={(e) => {
                   e.preventDefault();
                   goToDetail(favorite.idTeam);
                 }}
               >
-                <p class="text-xl" style={{ color: "#FF5C58" }}>
+                <p className="text-xl" style={{ color: "#FF5C58" }}>
                   More Info
                 </p>
               </button>

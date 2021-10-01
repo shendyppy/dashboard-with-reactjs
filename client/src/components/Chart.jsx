@@ -33,7 +33,7 @@ function Chart({ teamName, capacity }) {
             ],
           }}
           width={100}
-          height={70}
+          height={40}
           style={{ margin: "2%" }}
         />
       </div>
