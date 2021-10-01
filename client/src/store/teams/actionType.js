@@ -1,0 +1,5 @@
+export const SET_LOADING = "LOADING/SET_LOADING";
+export const SET_TEAMS = "TEAMS/SET_TEAMS";
+export const SET_TEAM_DETAIL = "TEAM/SET_TEAM_DETAIL";
+export const SET_ERROR = "ERROR/SET_ERROR";
+export const SET_LENGTH = "LENGTH/SET_LENGTH";
