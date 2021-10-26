@@ -8,42 +8,42 @@ import TeamCard from "../components/TeamCards";
 import NoDataFound from "../components/NoDataFound";
 
 function Favorites() {
-  const favorites = useSelector((state) => state.favorites.favorites);
+	const favorites = useSelector((state) => state.favorites.favorites);
 
-  if (favorites.length === 0 || !favorites) {
-    return <NoDataFound />;
-  }
+	if (favorites.length === 0 || !favorites) {
+		return <NoDataFound />;
+	}
 
-  return (
-    <>
-      <ToastContainer />
+	return (
+		<>
+			<ToastContainer />
 
-      <div className="container mx-auto text-center shadow-xl mt-10 mb-10">
-        <h1
-          className="text-3xl font-bold text-center mt-10 mb-10"
-          style={{
-            color: "#150050",
-          }}
-        >
-          YOUR FAVORITE TEAMS
-        </h1>
-        <div
-          className="card"
-          style={{
-            backgroundColor: "white",
-            borderWidth: 1,
-            borderColor: "#FF5C58",
-          }}
-        >
-          <div className="grid grid-cols-3 ml-6 mr-6 mb-3 mt-3">
-            {favorites.map((favorite) => {
-              return <TeamCard favorite={favorite} />;
-            })}
-          </div>
-        </div>
-      </div>
-    </>
-  );
+			<div className="container mx-auto text-center shadow-xl mt-10 mb-10">
+				<h1
+					className="text-3xl font-bold text-center mt-10 mb-10"
+					style={{
+						color: "#150050",
+					}}
+				>
+					YOUR FAVORITE TEAMS
+				</h1>
+				<div
+					className="card"
+					style={{
+						backgroundColor: "white",
+						borderWidth: 1,
+						borderColor: "#FF5C58",
+					}}
+				>
+					<div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ml-6 mr-6 mb-3 mt-3">
+						{favorites.map((favorite) => {
+							return <TeamCard favorite={favorite} />;
+						})}
+					</div>
+				</div>
+			</div>
+		</>
+	);
 }
 
 export default Favorites;
